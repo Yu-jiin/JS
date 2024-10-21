@@ -45,3 +45,45 @@ alt + B = 서버 시작
 const를 기본으로 사용해야 하는 이유
   - 코드의 의도 명확화
   - 버그 예방 
+
+DOM The Document Object Model
+  - 웹 페이지를 구조화된 객체로 제공하여 프로그램이 언어가 페이지 구조에 접근할 수 있는 방법을 제공
+  - 문서 구조, 스타일, 내용 등을 변경할 수 있도록 함 
+
+
+document.querySelector(selector)
+  - 제공하는 선택자와 일치하는 element 한개 선택
+  - 만족하는 첫번째 element가 없다면 null 반환 
+
+document.querySelectorAll(selector)
+  - 제공한 선택자와 일치하는 여러 element 선택
+  - 제공한 선택자를 만족하는 NodeList 반환 
+
+
+1. 클래스 속성 조작
+  - classList 
+    - 요소의 클래스 목록을 유사배열 형태로 반환 
+    1. element.classList.add()    - 추가
+    2. element.classList.remove() - 제거
+    3. element.classList.toggle() - 클래스가 존재하면 제거하고 false 반환 
+                                  - 클래스가 없으면 추가하고 true 반환 
+
+    // 1. 클래스 속성 조작
+    // h1 요소 선택
+    const h1Tag = document.querySelector('.heading')
+    // h1 요소 클래스 목록 확인 
+    console.log(h1Tag.classList)
+    // h1 요소에 클래스 목록에 red 클래스 추가, 삭제, 토글
+    h1Tag.classList.add('red')
+    console.log(h1Tag.classList)
+
+    h1Tag.classList.remove('red')
+    console.log(h1Tag.classList)
+
+    h1Tag.classList.toggle('red')
+    console.log(h1Tag.classList)
+
+2. 일반 속성 조작 메서드 
+    1. Element.getAttribute()
+    2. Element.setAttribute(name, value)
+    3. Element.removeAttribute()
