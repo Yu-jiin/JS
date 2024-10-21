@@ -14,13 +14,23 @@
 
   <script>
     // 생성
-    
+    const h1Tag = document.createElement('h1')
+    h1Tag.textContent = '제목'
+    console.log(h1Tag)
 
     // 추가
-    
+    const divTag = document.querySelector('div')
+    divTag.appendChild(h1Tag)
+    console.log(divTag)
+    // <div>
+    // <p>DOM 요소 조작</p>
+    // <h1>제목</h1>
+    // </div>  이렇게 된다아
 
     // 삭제
-    
+    const pTag = document.querySelector('p')
+    divTag.removeChild(pTag)
+
   </script>
 </body>
 

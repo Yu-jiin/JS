@@ -87,3 +87,8 @@ document.querySelectorAll(selector)
     1. Element.getAttribute()
     2. Element.setAttribute(name, value)
     3. Element.removeAttribute()
+
+3. DOM 요소 조작 메서드
+    1. document.createElement()
+    2. Node.Node.appendChild()
+    3. Node.removeChild()
