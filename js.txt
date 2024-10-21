@@ -1,5 +1,7 @@
 https://ko.javascript.info/
 
+alt + B = 서버 시작 
+
 공식문서 
 
 변수 선언 키워드 3 가지
@@ -14,3 +16,32 @@ https://ko.javascript.info/
     - 재선언 불가능
     - ES6에서 추가 
 
+변수명 작성 규칙
+  1. 반드시 문자, 달러, 밑줄 _ 로 시작
+  2. 대소문자 구분
+  3. 예약어 사용 불가 ex) for, if function
+
+변수명 Naming case
+  1. camelCase  - 변수, 객체, 함수 사용
+  2. PascalCase - 클래스, 생성자 사용
+  3. SNAKE_CASE - 상수에 사용 
+
+
+블록 스코프
+  if, for 함수 등의 중괄호 {} 내부를 가르킴
+  let x = 1
+  if (x==1) {
+    let x = 2
+    console.log(x) // 2
+  }
+  console.log(x)   // 1
+
+  x는 서로 다른 영역에 존재 
+
+
+-- 기본적으로 const 사용 
+  필요한 경우에만 let으로 전환 (재할당 필요 등 .. )
+
+const를 기본으로 사용해야 하는 이유
+  - 코드의 의도 명확화
+  - 버그 예방 
