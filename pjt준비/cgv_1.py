@@ -110,7 +110,9 @@ def load_theater_data():
         theater_data (pd.DataFrame): dataframe containing theater data
     """
 
-    df = pd.read_csv('theater_data.csv', converters={i: str for i in range(0, 200)}, encoding='utf-8')
+    # df = pd.read_csv('theater_data.csv', converters={i: str for i in range(0, 200)}, encoding='utf-8')
+    df = pd.read_csv('C:/SSAFY/Desktop/JS/JS/pjt준비/theater_data.csv', encoding='utf-8')
+
     return df
 
 def get_movie_info(theater_name:str, date:str):
@@ -138,3 +140,7 @@ if __name__ == '__main__':
     data_dict_list = get_movie_info(theater_name, date)
 
     prnt(data_dict_list)
+
+
+import os
+print(os.getcwd())
