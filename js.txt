@@ -137,4 +137,31 @@ document.querySelectorAll(selector)
               - 엄격한 비교가 이루어지며 암묵적 타입변환 발생 X  
     console.log(1 == '1')     // false
     console.log(0 == false)   // false
-    
+
+
+---------------------------------------------------------------------------------------
+
+if 문
+    const name = '지잉'
+    // const name = 'customer'
+    // const name = 'admin'
+
+    if(name === 'admin') {
+      console.log('관리자님 환영해요')
+    } else if (name === 'customer') {
+      console.log('고객님 환영해요')
+    } else {
+      console.log(`반갑습니다. ${name}님`)
+    }
+
+    // 삼항 연산자
+    const age = 20
+    const message = (age >= 18) ? '성인' : '미성년자'
+    console.log(message)
+
+반복문
+  while (조건문) {
+    // 조건문이 참이면 문장을 계속해서 수행
+  }
+
+  
