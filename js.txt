@@ -93,4 +93,15 @@ document.querySelectorAll(selector)
     2. Node.Node.appendChild()
     3. Node.removeChild()
 
-  
+-------------------------------------------------------------------------------
+
+원시 자료형 (Number, String, null, boolean, Template literals)
+  - 변수에 값이 직접 저장되는 자료형
+  - 변수에 할당될 때 값이 복사됨
+  - 변수간에 서로 영향을 미치지 않음 
+
+참조 자료형
+  - 객체의 주소가 저장되는 자료형 
+  - 객체를 생성하면 객체의 메모리 주소를 변수에 할당
+  - 변수간에 서로 영향을 미침
+
