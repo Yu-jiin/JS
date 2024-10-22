@@ -11,9 +11,15 @@
   <script>
     // while
     let i = 0
-
+    while (i < 6) {
+      console.log(i)
+      i += 1
+    }
 
     // for
+    for (let i = 0; i < 6; i ++) {
+      console.log(i)
+    }
 
 
     // for...in
@@ -21,11 +27,17 @@
       a: 'apple',
       b: 'banana'
     }
+    for(const property in object) {
+      console.log(property)
+      console.log(object[property])
+    }
 
 
     // for...of
     const numbers = [0, 1, 2, 3]
-
+    for (const number of numbers) {
+      console.log(number)
+    }
 
     const myStr = 'apple'
 

@@ -164,4 +164,45 @@ if 문
     // 조건문이 참이면 문장을 계속해서 수행
   }
 
-  
+  for([초기문]; [조거문]; [증감문]){
+    // 특정한 조건이 거짓으로 판별될 때 까지 반복
+  }
+
+  // for .. in  -  객체의 열거 가능한 속성에 대해 반복
+  for (variable in object) {
+    statement
+  }
+      // for...in
+    const object = {
+      a: 'apple',
+      b: 'banana'
+    }
+    for(const property in object) {
+      console.log(property)           // a,b
+      console.log(object[property])   // apple, banana
+    }
+
+
+  // for .. of  -  반복가능한 객체에 대해 반복
+    for (variable of iterable) {
+      statement
+    }
+    // for...of
+    const numbers = [0, 1, 2, 3]
+    for (const number of numbers) {
+      console.log(number)             // 0,1,2,3
+    }
+
+
+
+  for in / for of 비교
+for in      - 순서가 중요한 배열에서 사용 x (객체 전용)
+for of      - 배열, 문자열 처럼 반복가능한 객체
+
+for문에서는 객체의 값을 재할당 하기 때문에 const 사용하면 에러 발생
+
+for in, for if 에서는 재할당이 아니라 매번 다른 속성 이름이 변수에 지정되므려
+  const사용해도 에러가 발생하지 않음 
+
+배열 - for, for of
+객체 - for in 
