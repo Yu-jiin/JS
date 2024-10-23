@@ -48,13 +48,17 @@
 
 
     // 2. 매개변수 개수 < 인자 개수
+    //    초과입력한 인자는 사용하지 않음 
     const noArgs = function () {
       return 0
     }
+    console.log(noArgs(1,2,3))            // 0
+
 
     const twoArgs = function (num1, num2) {
       return [num1, num2]
     }
+    console.log(twoArgs(1, 2, 3))         // [1, 2]
   </script>
 </body>
 
