@@ -11,18 +11,30 @@
 <body>
   <script>
     // 함수 선언식
+    function add (num1, num2) {
+      return num1 + num2
+    }
     console.log(add(3, 9))
 
     // 함수 표현식
+    const sub = function (num1, num2) {
+      return num1 - num2
+    }
     console.log(sub(3, 9))
 
     // 기본 함수 매개변수
+    const greeting = function (name = 'Anonymous') {
+      return `Hi ${name}`
+    }
     console.log(greeting())
 
 
     // 나머지 매개변수 (가변 인자)
-    console.log(myFunc(1, 2, 3, 4, 5))
-    console.log(myFunc(1, 2))
+    const myFunc = function (param1, param2, ...restPrams) {
+      return [param1, param2, restPrams]
+    }
+    console.log(myFunc(1, 2, 3, 4, 5))    // [1, 2, Array(3)]
+    console.log(myFunc(1, 2))             //  [1, 2, Array(0)]
 
 
     // JS는 매개변수와 인자의 개수 불일치를 허용
@@ -30,7 +42,9 @@
     const threeArgs = function (num1, num2, num3) {
       return [num1, num2, num3]
     }
-
+    console.log(threeArgs())              // [undefined, undefined, undefined]
+    console.log(threeArgs(1))             // [1, undefined, undefined]
+    console.log(threeArgs(2, 3))          // [2, 3, undefined]
 
 
     // 2. 매개변수 개수 < 인자 개수
