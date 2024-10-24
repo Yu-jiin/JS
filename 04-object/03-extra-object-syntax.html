@@ -18,7 +18,11 @@
       age: age
     }
 
-    const user2 = {}
+    // 키 이름과 값으로 쓰이는 변수의 이름이 같으면 단축구문 사용 가능 
+    const user2 = {
+      name,
+      age,
+    }
 
 
     // 2. 단축 메서드
@@ -28,26 +32,46 @@
       }
     }
 
-    const myObj2 = {}
+    // 메서드 선언 시 function 키워드 생략 가능 
+    const myObj2 = {
+      myFunc() {
+        return 'Hello'
+      }
+    }
 
 
     // 3. 계산된 속성
+    // []로 둘러싸여 있으면 고정된 값이 아닌 변수값 사용 가능 
     const product = prompt('물건 이름을 입력해주세요')
     const prefix = 'my'
     const suffix = 'property'
 
-    const bag = {}
+    const bag = {
+      [product] : 5,
+      [prefix + suffix] : 'value',
+    }
 
     console.log(bag) // {연필: 5, myproperty: 'value'}
 
 
-    // 4. 구조 분해 할당
+    // 4. 구조 분해 할당  쭝 요 
+    // 배열또는 객체를 분해하여 객체 속성을 변수에 쉽게 할당할 수 있는 문법 
     const userInfo = {
       firstName: 'Alice',
       userId: 'alice123',
       email: 'alice123@gmail.com'
     }
 
+    // 기존엔 이렇게
+    // const firstName = userInfo.firstName
+    // const userId = userInfo.userId
+    // const email = userInfo.email
+
+    // const { firstName } = userInfo
+    // const { userId } = userInfo
+    // const { email } = userInfo
+    const {firstName, userId, email} = userInfo
+    console.log(firstName, userId, email)
 
     // 구조 분해 할당 활용 - "함수 매개변수"
     function printInfo({ name, age, city }) {
@@ -59,7 +83,7 @@
       age: 35,
       city: 'London',
     }
-
+    printInfo(person)
     // 함수 호출 시 객체를 구조 분해하여 함수의 매개변수로 전달
 
 
