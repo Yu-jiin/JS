@@ -9,27 +9,40 @@
 
 <body>
   <script>
-    const user = {}
+    // 객체 속성 참조는 . 또는 [ ] 
+    // key이름에 띄어쓰기가 있으면 대괄호만 접근 가능 
+    const user = {
+      name : 'Alice',
+      'key with space' : true,
+      greeting : function(){
+        return 'hello'
+      }
+    }
 
     // 조회
-    console.log() // Alice
-    console.log() // true
+    console.log(user.name) // Alice
+    console.log(user['key with space']) // true
 
     // 추가
-    console.log() // {name: 'Alice', key with space: true, address: 'korea', greeting: ƒ}
+    user.address = 'korea'
+    console.log(user) // {name: 'Alice', key with space: true, address: 'korea', greeting: ƒ}
 
     // 수정
-    console.log() // Bella
+    user.name = 'Bella'
+    console.log(user.name) // Bella
 
     // 삭제
-    console.log() // {key with space: true, address: 'korea', greeting: ƒ}
+    delete user.name
+    console.log(user) // {key with space: true, address: 'korea', greeting: ƒ}
 
     // in 연산자
-    console.log() // true
-    console.log() // false
+    // 속성이 객체에 존재하는지 여부를 확인
+    console.log('greeting' in user) // true
+    console.log('country' in user) // false
 
     // 메서드 호출
-    console.log() // hello
+    // object.method()방식으로 호출
+    console.log(user.greeting()) // hello
   </script>
 </body>
 
