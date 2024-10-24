@@ -10,10 +10,20 @@
 <body>
   <script>
     // 클래스
-    class Member { }
+    class Member { 
+      constructor(name, age) {
+        this.name = name
+        this.age = age
+      }
+      sayHi() {
+        console.log(`Hi, I am ${this.name}`)
+      }
+    }
+    // new없이 클래스 호출하면 TypeError 발생 
+    const member1 = new Member('Alice', 20)
 
-    console.log() // Member { name: 'Alice', age: 20 }
-    console.log() // Alice
+    console.log(member1) // Member { name: 'Alice', age: 20 }
+    console.log(member1.name) // Alice
     member1.sayHi() // Hi I am Alice
 
 
