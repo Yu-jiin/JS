@@ -12,13 +12,16 @@
     // Method & this 예시
     const person = {
       name: 'Alice',
-      greeting: function () { },
+      greeting: function () {
+        return `Hello, my name is ${this.name}`
+       },
     }
 
     console.log(person.greeting()) // Hello my name is Alice
 
 
     // 1.1 단순 호출 시 this
+    // 
     const myFunc = function () {
       return this
     }
@@ -32,6 +35,7 @@
       }
     }
     console.log(myObj.myFunc()) // ??
+    // Window {window: Window, self: Window, document: document, name: '', location: Location, …}
 
     // 2. 중첩된 함수에서의 this
     // 2.1 일반 함수
@@ -39,7 +43,9 @@
       numbers: [1, 2, 3],
       myFunc: function () {
         this.numbers.forEach(function (number) {
-          console.log(this) // ??
+          // 위에 이 this는 myObj2의 this
+          console.log(this) // window
+          // 얘는 일반함수 표현식으로 호출이 되는 구조 -> window 
         })
       }
     }
@@ -50,7 +56,9 @@
       numbers: [1, 2, 3],
       myFunc: function () {
         this.numbers.forEach((number) => {
-          console.log(this) // ??
+          console.log(this) // myObj3
+          // 화살표함수로 변경하면 화살표 함수는 자신만의 this를 가지지 않기 때문에
+          // 외부 함수에서의 myObj3의 this를 가져옴
         })
       }
     }
