@@ -11,18 +11,20 @@
   <script>
     const names = ['Alice', 'Bella', 'Cathy']
 
-    // pop
-    console.log() // Cathy
+    // pop  - 배열 끝 제거
+    console.log(names.pop()) // Cathy
     console.log(names) // ['Alice', 'Bella']
 
-    // push
+    // push - 배열 끝 추가
+    names.push('Dan')
     console.log(names) // ['Alice', 'Bella', 'Dan']
 
-    // shift
-    console.log() // Alice
+    // shift  - 배열 앞 제거
+    console.log(names.shift()) // Alice
     console.log(names) // ['Bella', 'Dan']
 
-    // unshift
+    // unshift  - 배열 앞 추가
+    names.unshift('Eric')
     console.log(names) // ['Eric', 'Bella', 'Dan']
   </script>
 </body>
