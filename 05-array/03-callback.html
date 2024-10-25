@@ -11,14 +11,25 @@
   <h4>콜백 함수</h4>
   <p>다른 함수에 인자로 전달되는 함수</p>
   <p>외부 함수 내에서 호출되어 일종의 루틴이나 특정 작업 진행</p>
+
+  <p>forEach : 반환값 없음</p>
+  <p>map : 함수 호출 결과를 모아 새로운 배열 반환</p>
   <script>
     // 1
     const numbers1 = [1, 2, 3]
-    numbers.forEach()
+    numbers1.forEach(function (number) {
+      console.log(number ** 2)
+    })
 
     // 2
     const numbers2 = [1, 2, 3]
-    numbers.forEach()
+    const callBackFunction = function (number) {
+      console.log(number)
+    }
+    numbers2.forEach(callBackFunction)
+
+    
+
 
   </script>
 </body>
