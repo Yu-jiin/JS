@@ -17,10 +17,15 @@
       { name: '정지원', score: 90 }
     ]
 
+    let numberOfStudent = students.length
+    let sumOfScores = 0
+
     students.forEach((student) => {
-      
+      sumOfScores += student.score
     })
 
+    const result = sumOfScores / numberOfStudent
+    console.log(result)
   </script>
 </body>
 

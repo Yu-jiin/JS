@@ -14,8 +14,15 @@
     // 2. 홀수는 3을 더하기
     // 결과를 새 배열에 저장
     const numbers = [1, 2, 3, 4, 5]
-
-
+    const result = []
+    numbers.forEach((number) => {
+      if (number % 2 === 0){
+        result.push(number * 2)
+      } else {
+        result.push(number + 3)
+      }
+    })
+    console.log(result)
 
 
     // 결과
