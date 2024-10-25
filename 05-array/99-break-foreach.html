@@ -15,7 +15,9 @@
     // - 배열의 요소 중 적어도 하나라도 콜백 함수를 통과하는지 테스트
     // - 콜백 함수가 배열 요소 적어도 하나라도 참이면 true를 반환하고 순회 중지
     // - 그렇지 않으면 false를 반환
-    const isEvenNumber = null
+    const isEvenNumber = array.some(function (number) {
+      return number % 2 === 0
+    })
 
     console.log(isEvenNumber) // true
 
@@ -24,8 +26,9 @@
     // - 콜백 함수가 모든 배열 요소에 대해 참이면 true를 반환
     // - 그렇지 않으면 false를 반환하고 순회 중지
 
-    const isAllEvenNumber = null
-
+    const isAllEvenNumber = array.every(function (number) {
+      return number % 2 === 0
+    })
     console.log(isAllEvenNumber) // false
 
 
@@ -38,11 +41,23 @@
 
     // 1. some
     // - 콜백 함수가 true를 반환하면 some 메서드는 즉시 중단하고 true를 반환
-    names.some()
+    names.some(function (name) {
+      console.log(name)
+      if (name === 'Bella'){
+        return true
+      }
+      return false
+    })
 
     // 2. every
     // - 콜백 함수가 false를 반환하면 every 메서드는 즉시 중단하고 false를 반환
-    names.every()
+    names.every(function (name) {
+      console.log(name)
+      if (name === 'Bella') {
+        return false
+      }
+      return true
+    })
 
   </script>
 </body>
