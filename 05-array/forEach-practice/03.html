@@ -37,6 +37,7 @@
 
     library.borrowHistory.forEach((history) => {
       if (history.userId === 'user2'){
+        // 대출이력의 책 번호를 통해 책 찾기 
         const book = library.books.find((book) => {
           return book.id === history.bookId
         })
