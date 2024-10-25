@@ -8,21 +8,28 @@
 </head>
 
 <body>
+
+  <ul>
+    <li>filter : 콜백 함수의 반환값이 참인 요소들만 모아서 새로운 배열 반환</li>
+    <li>find : 콜백 함수의 반환값이 참이면 해당 요소 반환</li>
+    <li>some : 배열의 요소중 하나라도 통과하면 true 반환하며 즉시 배열 중지 반면 모두 통과 못하면 false</li>
+    <li>every : 배열의 모든 요소가 콜백 함수를 통과하면 true 반환, 반면 하나라도 통과못하면 즉시 false 반환하고 배열 순회 중지 </li>
+  </ul>
   <script>
     // 배열 순회 종합
     const names = ['Alice', 'Bella', 'Cathy']
 
-    // for loop
+    // for loop   -> break, continue 사용 가능 
     for (let idx = 0; idx < names.length; idx++) {
       console.log(names[idx])
     }
 
-    // for...of
+    // for...of   -> break, continue 사용 가능
     for (const name of names) {
       console.log(name)
     }
 
-    // forEach
+    // forEach 사용 권 장 !! -> break, continue 사용 불가 
     names.forEach((name) => {
       console.log(name)
     })
