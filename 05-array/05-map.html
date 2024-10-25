@@ -8,6 +8,19 @@
 </head>
 
 <body>
+  <h3> map </h3>
+  <p>배열된 모든 요소에 대해 함수를 호출하고,</p>
+  <p>반환 된 호출 결과 값을 모아 새로운 배열 반환 </p>
+  <ul>
+    <li>forEach의 매개변수와 같음 </li>
+    <li>item : 처리할 배열의 요소</li>
+    <li>index: 처리할 배열 요소의 인덱스</li>
+    <li>array : forEach를 호출한 배열</li>
+    <li>반환 값 : 새로운 배열을 반환</li>
+    <li>const newArr = array.map (do something)</li>
+    <li>꼭 변수 지정해야함 !! </li>
+  </ul>
+
   <script>
     // 1. for...of 와 비교
     const persons = [
@@ -17,10 +30,15 @@
 
     // 1.1 for...of
     let result1 = []
+    for (const person of persons) {
+      result1.push(person.name)
+    }
     console.log(result1) // ['Alice', 'Bella']
 
     // 1.2 map
-    const result2 = null
+    const result2 = persons.map(function (person) {
+      return person.name
+    })
     console.log(result2) // ['Alice', 'Bella']
 
 
@@ -31,8 +49,10 @@
       return name.length
     })
 
-    const result4 = names.map()
-
+    const result4 = names.map((name) => {
+      return name.length
+    })
+    
     console.log(result3) // [5, 5, 5]
     console.log(result4) // [5, 5, 5]
 
@@ -40,7 +60,9 @@
     // 3. 커스텀 콜백 함수
     const numbers = [1, 2, 3]
 
-    const doubleNumber = null
+    const doubleNumber = numbers.map((number) => {
+      return number * 2
+    })
 
     console.log(doubleNumber) // [2, 4, 6]
   </script>
