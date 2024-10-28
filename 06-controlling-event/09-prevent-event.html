@@ -21,7 +21,7 @@
 
     h1Tag.addEventListener('copy', function (event) {
       console.log(event)
-      // event.preventDefault()
+      event.preventDefault()
       alert('복사 할 수 없습니다.')
     })
 
@@ -29,7 +29,7 @@
     const formTag = document.querySelector('#my-form')
 
     const handleSubmit = function (event) {
-      // event.preventDefault()
+      event.preventDefault()
     }
 
     formTag.addEventListener('submit', handleSubmit)
