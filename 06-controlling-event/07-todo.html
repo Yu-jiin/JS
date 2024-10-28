@@ -21,20 +21,31 @@
     const addTodo = function (event) {
       // 2.1 사용자 입력 데이터 저장
       const inputData = inputTag.value
-
-      // 2.2 데이터를 저장할 li 요소 생성
-      const liTag = document.createElement('li')
       
-      // 2.3 li 요소 컨텐츠에 데이터 입력
-      liTag.textContent = inputData
+      // 빈 문자열 방지, 입력이 없으면 경고 대화상자 띄움
+      if (inputData.trim()) {
+        const liTag = document.createElement('li')
+        liTag.textContent = inputData
+        ulTag.appendChild(liTag)
+        inputTag.value = ''
+      } else {
+        alert('할일 입력하세요')
+      }
 
-      // 2.4 li 요소를 부모의 자식요소로 추가
-      ulTag.appendChild(liTag)
+      // // 2.2 데이터를 저장할 li 요소 생성
+      // const liTag = document.createElement('li')
 
-      // 2.5 todo추가 후 input 입력 데이터 초기화
-      inputTag.value = ''
+      // // 2.3 li 요소 컨텐츠에 데이터 입력
+      // liTag.textContent = inputData
+
+      // // 2.4 li 요소를 부모의 자식요소로 추가
+      // ulTag.appendChild(liTag)
+
+      // // 2.5 todo추가 후 input 입력 데이터 초기화
+      // inputTag.value = ''
     }
 
+    btn.addEventListener('click', addTodo)
   </script>
 </body>
 
