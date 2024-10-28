@@ -21,6 +21,12 @@
       <p id="p">p</p>
     </div>
   </form>
+  <!-- <p>요소만 클릭했음에도, 모든 핸들러가 동작함
+        왜 그럴까 ?
+
+       버블링  - 한 요소에 이벤트가 발생하면 이 요소에 할당된 핸들러가 동작하고 부모요소의 핸들러까지 동작하는 현상
+            - 최하위의 요소 p를 클릭하면 p -> div -> form 순대로 모두 동작 
+    -->
 
   <script>
     const formElement = document.querySelector('#form')
