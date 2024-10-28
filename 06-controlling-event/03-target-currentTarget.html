@@ -50,8 +50,8 @@
     const innerElement = document.querySelector('#inner')
 
     const clickHandler = function (event) {
-      console.log('currentTarget:', event.currentTarget.id)
-      console.log('target:', event.target.id)
+      console.log('currentTarget:', event.currentTarget.id) // outerouter 요소만을 가르킴
+      console.log('target:', event.target.id)               // 실제 이벤트가 발생하는 outerouter, outer, inner 중 하나 
     }
 
     outerOuterElement.addEventListener('click', clickHandler)
