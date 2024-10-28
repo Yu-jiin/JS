@@ -12,6 +12,21 @@
   <p></p>
 
   <script>
+    //1. input 요소 선택
+    const inputTag = document.querySelector('#text-input')
+
+    //2. p 요소 선택
+    const pTag = document.querySelector('p')
+
+    //3. 콜백 함수 (input에 input 이벤트 발생할 때마다 실행할 코드)
+    const inputHandler = function (event) {
+      console.log(event.currentTarget.value)
+      // pTag에 작성하는 데이터 수정 수정 
+      pTag.textContent = event.currentTarget.value
+    }
+
+    //4. input 요소에 핸들러 부착
+    inputTag.addEventListener('input', inputHandler)
   </script>
 </body>
 

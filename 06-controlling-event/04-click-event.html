@@ -12,6 +12,26 @@
   <p>클릭횟수 : <span id="counter">0</span></p>
 
   <script>
+    // 초기값
+    let countNumber = 0
+
+    // 버튼 선택
+    const btn = document.querySelector('#btn')
+
+    // 콜백 함수
+    const clickHandler = function () {
+      countNumber += 1
+
+      // 숫자를 컨텐츠로 가지는 span 태그 선택
+      const spanTag = document.querySelector('#counter')
+      // span 태그 콘텐츠 값을 countNumber로 변경
+      spanTag.textContent = countNumber
+    } 
+
+
+    // 이벤트 핸들러 부착
+    btn.addEventListener('click', clickHandler)
+
   </script>
 </body>
 
