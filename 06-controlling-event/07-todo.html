@@ -13,6 +13,28 @@
   <ul></ul>
 
   <script>
+    // 1. 필요한 요소 선택
+    const inputTag = document.querySelector('.input-text')
+    const btn = document.querySelector('#btn')
+    const ulTag = document.querySelector('ul')
+
+    const addTodo = function (event) {
+      // 2.1 사용자 입력 데이터 저장
+      const inputData = inputTag.value
+
+      // 2.2 데이터를 저장할 li 요소 생성
+      const liTag = document.createElement('li')
+      
+      // 2.3 li 요소 컨텐츠에 데이터 입력
+      liTag.textContent = inputData
+
+      // 2.4 li 요소를 부모의 자식요소로 추가
+      ulTag.appendChild(liTag)
+
+      // 2.5 todo추가 후 input 입력 데이터 초기화
+      inputTag.value = ''
+    }
+
   </script>
 </body>
 
