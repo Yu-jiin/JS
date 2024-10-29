@@ -26,12 +26,16 @@
   <p>브라우저와 Node.js에서 사용할 수 있는 Promise 기반의 HTTP 클라이언트 라이브러리</p>
   <p>★ 주로 웹 애플리케이션에서 서버와 통신할 때 사용</p>
   <p>★ 클라이언트 및 서버사이에 HTTP 요청을 만들고 응답을 처리하는데 사용되는 자바 스크립트 라이브러리</p>
+  <p>// src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js" // cdn 설치</p>
 
-
-  <!-- <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script> -->
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script>
     // 1.
-    const promiseObj = axios({})
+    // cat api 주소로 get 요청을 보내겠다 !! 
+    const promiseObj = axios({
+      method: 'get',
+      url: 'https://api.thecatapi.com/v1/images/search'
+    })
 
     console.log(promiseObj) // Promise object
 
