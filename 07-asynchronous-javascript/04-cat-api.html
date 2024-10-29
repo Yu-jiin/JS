@@ -11,6 +11,22 @@
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script>
     const URL = 'https://api.thecatapi.com/v1/images/search'
+    axios({
+      method: 'get',
+      url: URL
+    })
+      .then((response) => {
+        // 그냥 응답 순서대로 떠버림 그래서 먀아옹 뜨고 밑에꺼가 차례로
+        console.log(response)
+        console.log(response.data)
+        console.log(response.data[0])
+        console.log(response.data[0].url)
+      })
+      .catch((error) => {
+        console.log(error)
+        console.log('실패했다옹')
+      })
+      console.log('먀아옹')
   </script>
 </body>
 

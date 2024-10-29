@@ -8,14 +8,14 @@
 </head>
 
 <body>
-  <!-- <button>냥냥펀치</button> -->
+  <button>냥냥펀치</button>
 
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script>
     const URL = 'https://api.thecatapi.com/v1/images/search'
-    // const btn = document.querySelector('button')
+    const btn = document.querySelector('button')
 
-    // const getCats = function () {
+    const getCats = function () {
     axios({
       method: 'get',
       url: URL
@@ -29,9 +29,9 @@
         console.log('실패했다옹')
       })
     console.log('야옹야옹')
-    // }
+    }
 
-    // btn.addEventListener('click', getCats)
+    btn.addEventListener('click', getCats)
   </script>
 </body>
 
