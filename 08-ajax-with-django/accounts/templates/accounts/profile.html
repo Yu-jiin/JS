@@ -8,7 +8,8 @@
 <body>
   <h1>{{ person.username }}의 프로필</h1>
   <div>
-    팔로잉 : {{ person.followings.all|length }} / 팔로워 : {{ person.followers.all|length }}
+    팔로잉 : <span id="followings-count"> {{ person.followings.all|length }}</span> / 
+    팔로워 : <span id='followers-count'>{{ person.followers.all|length }}</span>
   </div>
 
 {% comment %} 
@@ -27,9 +28,9 @@
       <form id="follow-form" data-user-id="{{person.pk}}">
         {% csrf_token %}
         {% if request.user in person.followers.all %}
-          <input type="submit" value="언팔로우">
+          <input type="submit" value="언팔로우" class="follow-input">
         {% else %}
-          <input type="submit" value="팔로우">
+          <input type="submit" value="팔로우" class="follow-input">
         {% endif %}
       </form>
     </div>
@@ -86,6 +87,23 @@
       })
         .then((response) => {
           console.log(response)
+          // 11. django로부터 응답받은 팔로우 상태 정보
+          console.log(response.data)
+          // 12. follow 상태 정보 데이터에 따라 팔로우 버튼 조작
+          const isFollowed = response.data.is_followed
+          const followBtn = document.querySelector('.follow-input')
+          if (isFollowed === true) {
+            followBtn.value = '언팔로우'
+          } else {
+            followBtn.value = '팔로우'
+          }
+          // 13. 팔로워 & 팔로잉 수 선택
+          const followingsCountTag = document.querySelector('#followings-count')
+          const followersCountTag = document.querySelector('#followers-count')
+
+          // 15. 장고가 응답한 팔로잉, 팔로워 수 데이터를 활용해 DOM 변경
+          followingsCountTag.textContent = response.data.followings_count
+          followersCountTag.textContent = response.data.followers_count
         })
         .catch((error) => {
           console.log(error)
