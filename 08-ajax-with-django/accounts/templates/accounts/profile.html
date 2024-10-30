@@ -81,8 +81,15 @@
         method: 'post',
         // 6. HTML에서 전달해서 할당한 PK 값으로 url 완성
         url: `/accounts/${userId}/follow/`,
+        // 8. 선택한 csrftoken 값을 요청 headers에 세팅
         headers: {'X-CSRFToken': csrftoken},
       })
+        .then((response) => {
+          console.log(response)
+        })
+        .catch((error) => {
+          console.log(error)
+        })
     })
   </script>
 </body>
