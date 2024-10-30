@@ -23,6 +23,7 @@
   {% if request.user != person %}
     <div>
       {% comment %} data- 까지는 약속이고 그 뒤엔 내 맘대루 {% endcomment %}
+      {% comment %} data-my-id로 적으면 dataset.myId로 {% endcomment %}
       <form id="follow-form" data-user-id="{{person.pk}}">
         {% csrf_token %}
         {% if request.user in person.followers.all %}
@@ -63,14 +64,24 @@
     // 1. 팔로우 버튼 선택
     const formTag = document.querySelector('#follow-form')
 
+    // 7. csrf_token 선택
+    const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value
+
     // 2. 팔로우 버튼에 이벤트 리스너 할당(submit event)
     formTag.addEventListener('submit', function (event) {
       // 3. submit 이벤트 기본 동작 취소하기 
       event.preventDefault()
+      // 5. HTML에서 준비한 user의 pk를 조회 (택 1)
+      console.log(event.currentTarget.dataset.userId)
+      const userId = event.currentTarget.dataset.userId
+      // const userId = this.dataset.userId
+      // const userId = formTag.dataset.userId
       // 4. axios 준비
       axios({
         method: 'post',
-        url: `/accounts/${}/follow/`,
+        // 6. HTML에서 전달해서 할당한 PK 값으로 url 완성
+        url: `/accounts/${userId}/follow/`,
+        headers: {'X-CSRFToken': csrftoken},
       })
     })
   </script>
