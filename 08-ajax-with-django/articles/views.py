@@ -99,12 +99,21 @@ def comments_delete(request, article_pk, comment_pk):
         comment.delete()
     return redirect('articles:detail', article.pk)
 
+from django.http import JsonResponse
 
+@login_required
 def likes(request, article_pk):
     article = Article.objects.get(pk=article_pk)
 
     if request.user in article.like_users.all():
         article.like_users.remove(request.user)
+        is_liked = False
     else:
         article.like_users.add(request.user)
-    return redirect('articles:index')
+        is_liked = True
+    # 13. 세팅한 데이터를 JSON 형식으로 응답
+    context = {
+        'is_liked': is_liked
+    }
+    return JsonResponse(context)
+    # return redirect('articles:index')
