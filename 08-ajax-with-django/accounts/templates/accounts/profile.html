@@ -11,9 +11,19 @@
     팔로잉 : {{ person.followings.all|length }} / 팔로워 : {{ person.followers.all|length }}
   </div>
 
+{% comment %} 
+  axios를 사용해 POST 메서드로 데이터를 제출
+  form의 method, action 속성이 불필요해짐
+  팔로우 버튼에 submit 이벤트가 발생하면, 
+  이벤트 리스너 를 통해서 요청을 보내야함 
+  django가 json 데이터를 응답
+  JS에서 json 응답받은 json 데이터를 활용해 팔로우 버튼을 조작(DOM)
+{% endcomment %}
+
   {% if request.user != person %}
     <div>
-      <form action="{% url "accounts:follow" person.pk %}" method="POST">
+      {% comment %} data- 까지는 약속이고 그 뒤엔 내 맘대루 {% endcomment %}
+      <form id="follow-form" data-user-id="{{person.pk}}">
         {% csrf_token %}
         {% if request.user in person.followers.all %}
           <input type="submit" value="언팔로우">
@@ -47,5 +57,22 @@
   {% endfor %}
 
   <a href="{% url "articles:index" %}">[back]</a>
+
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script>
+    // 1. 팔로우 버튼 선택
+    const formTag = document.querySelector('#follow-form')
+
+    // 2. 팔로우 버튼에 이벤트 리스너 할당(submit event)
+    formTag.addEventListener('submit', function (event) {
+      // 3. submit 이벤트 기본 동작 취소하기 
+      event.preventDefault()
+      // 4. axios 준비
+      axios({
+        method: 'post',
+        url: `/accounts/${}/follow/`,
+      })
+    })
+  </script>
 </body>
 </html>
