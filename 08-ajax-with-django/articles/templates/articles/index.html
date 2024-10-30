@@ -43,9 +43,10 @@
     <form data-article-id="{{article.pk}}">
       {% csrf_token %}
       {% if request.user in article.like_users.all %}
-      <input type="submit" value="좋아요 취소">
+      {% comment %} 17. 어떤 좋아요 버튼인지 구별해주는 id 속성 추가 {% endcomment %}
+      <input type="submit" value="좋아요 취소" id="like-{{ article.pk }}">
       {% else %}
-      <input type="submit" value="좋아요">
+      <input type="submit" value="좋아요" id="like-{{ article.pk }}">
       {% endif %}
     </form>
     <hr>
@@ -83,12 +84,12 @@
           // 14. 장고한테 응답받은 좋아요 상태 정보 저장
           const isLiked = response.data.is_liked
           // 16. 좋아요 버튼 선택
-          const 
+          const likeBtn = document.querySelector(`#like-${articleId}`)
           // 15. 좋아요 상태 정보에 따라 버튼 변경
           if (isLiked === true) {
-            
+            likeBtn.value = '좋아요 취소'
           } else {
-
+            likeBtn.value = '좋아요'
           }
         })
         .catch((error) => {
